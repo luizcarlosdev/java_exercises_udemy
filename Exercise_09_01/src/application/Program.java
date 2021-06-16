@@ -13,22 +13,23 @@ public class Program {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		double initialDepositValue = 0.0;
+		Account account;
 		
 		System.out.print("Enter account number: ");
 		int accountNumber = sc.nextInt();
-		sc.nextLine();
 		System.out.print("Enter account holder: ");
+		sc.nextLine();
 		String accountHolder = sc.nextLine();
 		System.out.print("Is there an initial deposit (y/n)? ");
-		String initialDeposit = sc.nextLine();
+		char initialDeposit = sc.next().charAt(0);
 		
-		if (initialDeposit.equals("y")) {
+		if (initialDeposit == 'y') {
 			System.out.print("Enter initial deposit value: ");
-			initialDepositValue = sc.nextDouble();
+			double initialDepositValue = sc.nextDouble();
+			account = new Account(accountNumber, accountHolder, initialDepositValue);
+		} else {
+			account = new Account(accountNumber, accountHolder);
 		}
-		
-		Account account = new Account(accountNumber, accountHolder, initialDepositValue);
 		
 		System.out.println("\nAccount data:");
 		System.out.println(account);
