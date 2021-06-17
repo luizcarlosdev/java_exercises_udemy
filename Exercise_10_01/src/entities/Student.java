@@ -3,13 +3,15 @@ package entities;
 public class Student {
 	private String name;
 	private String email;
+	private int room;
 	
 	public Student() {
 	}
 	
-	public Student(String name, String email) {
+	public Student(String name, String email, int room) {
 		this.name = name;
 		this.email = email;
+		this.room = room;
 	}
 	
 	public String getName() {
@@ -26,5 +28,13 @@ public class Student {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public int getRoom() {
+		return room;
+	}
+	
+	public void setRoom(int room) {
+		this.room = room;
 	}
 }
