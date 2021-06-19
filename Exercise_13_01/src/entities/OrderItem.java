@@ -6,9 +6,6 @@ public class OrderItem {
 	private double price;
 	private Product product;
 	
-	public OrderItem() {
-	}
-	
 	public OrderItem(int quantity, double price, Product product) {
 		this.quantity = quantity;
 		this.price = price;
@@ -41,5 +38,20 @@ public class OrderItem {
 	
 	public double subTotal() {
 		return quantity * price;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(product.getName());
+		sb.append(", $");
+		sb.append(String.format("%.2f", product.getPrice()));
+		sb.append(", Quantity: ");
+		sb.append(quantity);
+		sb.append(", Subtotal: $");
+		sb.append(String.format("%.2f", subTotal()));
+		sb.append("\n");
+		
+		return sb.toString();
 	}
 }
